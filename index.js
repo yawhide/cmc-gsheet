@@ -33,7 +33,7 @@ updateCache(() => setInterval(updateCache, 1000 * 60))
 
 app.get('/:symbol', (req, res) => {
   const price = _.get(cache, [req.params.symbol.toUpperCase(), 'price_cad'], 0)
-  res.json(price)
+  res.json(Number(price))
 })
 
 app.listen(PORT, () => console.log('Example app started!'))
